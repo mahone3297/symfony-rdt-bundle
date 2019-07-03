@@ -1,0 +1,24 @@
+{
+    "name": "mahone3297/doctrine-base-bundle",
+    "description": "It provides some common doctrine base features.",
+    "keywords": [
+        "doctrine"
+    ],
+    "type": "library",
+    "require": {
+        "php": "~7.0",
+        "doctrine/doctrine-bundle": "~1.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mahone3297",
+            "email": "329730566@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mahone\\": "src/"
+        }
+    }
+}
