@@ -14,11 +14,26 @@ Trait TraitUpdatedAt
     private $updatedAt;
 
     /**
+     * @ORM\PreFlush
+     */
+    public function preFlushUpdatedAt()
+    {
+        if (null == $this->getUpdatedAt())
+            $this->setUpdatedAt(new \DateTime());
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdateUpdatedAt()
+    {
+        $this->setUpdatedAt(new \DateTime());
+    }
+
+    /**
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     *
-     * @return Test
      */
     public function setUpdatedAt($updatedAt)
     {

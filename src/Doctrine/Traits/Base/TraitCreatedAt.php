@@ -14,11 +14,18 @@ Trait TraitCreatedAt
     private $createdAt;
 
     /**
+     * @ORM\PreFlush
+     */
+    public function preFlushCreatedAt()
+    {
+        if (null == $this->getCreatedAt())
+            $this->setCreatedAt(new \DateTime());
+    }
+
+    /**
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     *
-     * @return Test
      */
     public function setCreatedAt($createdAt)
     {
