@@ -1,6 +1,6 @@
 <?php
 
-namespace Mahone\Doctrine\Traits\Base;
+namespace Mahone\Doctrine\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
 
