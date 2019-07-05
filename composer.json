@@ -23,5 +23,15 @@
         "psr-4": {
             "Mahone\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mahone\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": [
+            "./vendor/bin/phpunit -c tests/phpunit.xml.dist"
+        ]
     }
 }
