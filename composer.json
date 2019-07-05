@@ -32,7 +32,7 @@
     },
     "scripts": {
         "test": [
-            "./vendor/bin/phpunit -c tests/phpunit.xml.dist"
+            "./vendor/bin/phpunit -c phpunit.xml.dist"
         ],
         "lint": [
             "./vendor/bin/phplint"

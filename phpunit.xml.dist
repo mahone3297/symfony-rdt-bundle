@@ -7,11 +7,11 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false"
-         bootstrap="../vendor/autoload.php"
+         bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="Doctrine Trait">
-            <directory suffix="Test.php">./Doctrine/Traits</directory>
+        <testsuite name="main">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>
