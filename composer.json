@@ -1,8 +1,12 @@
 {
-    "name": "mahone3297/doctrine-base-bundle",
-    "description": "It provides some common doctrine base features.",
+    "name": "mahone3297/symfony-rdt-bundle",
+    "description": "It helps you to develop symfony app rapidly cause of providing some common features.",
     "keywords": [
-        "doctrine"
+        "symfony",
+        "doctrine",
+        "rapid",
+        "develop",
+        "toolkit"
     ],
     "type": "library",
     "require": {
