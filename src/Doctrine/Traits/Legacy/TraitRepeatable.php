@@ -67,7 +67,18 @@ Trait TraitRepeatable
         $this->setTryTimes($tryTimes);
 
         if (!$isProcessed) {
-            $this->setNextTriggerAt(new \DateTime('+' . (string)pow(2, $tryTimes) . 'min'));
+            if ($tryTimes < 720) {//前12h按1 min重试
+                $delayTime = '+1 min';
+            } elseif ($tryTimes < 792) {//前24h按10 min重试,tryTimes继续+12*60/10
+                $delayTime = '+10 min';
+            } elseif ($tryTimes < 840) {//前3天按1 hour重试，tryTimes继续+2*24/1
+                $delayTime = '+1 hour';
+            } elseif ($tryTimes < 864) {//前7天按4 hour重试，tryTimes继续+4*24/4
+                $delayTime = '+4 hour';
+            } else {//超过7天按8 hour重试
+                $delayTime = '+8 hour';
+            }
+            $this->setNextTriggerAt(new \DateTime($delayTime));
         }
     }
 
