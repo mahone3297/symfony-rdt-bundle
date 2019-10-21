@@ -24,7 +24,7 @@ trait TraitProductName
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = preg_replace("/[\n|\r]/", '', $name);
 
         return $this;
     }
