@@ -62,5 +62,6 @@ class TraitDataTest extends TestCase
         $dataUser->setProductCode('SKU0001');
         $dataUser->setWeight(10.001);
         $this->assertEquals('SKU0001', $dataUser->getProductCode());
+        $this->assertEquals(10.001, $dataUser->getWeight());
     }
 }
