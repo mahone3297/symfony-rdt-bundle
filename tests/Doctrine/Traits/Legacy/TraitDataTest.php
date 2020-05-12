@@ -9,6 +9,7 @@ use Mahone\Doctrine\Traits\Legacy\TraitInOutMonitor;
 use Mahone\Doctrine\Traits\Legacy\TraitPlatformOrderId;
 use Mahone\Doctrine\Traits\Legacy\TraitProductCode;
 use Mahone\Doctrine\Traits\Legacy\TraitProductName;
+use Mahone\Doctrine\Traits\Legacy\TraitWeight;
 use Mahone\Doctrine\Traits\TraitBase;
 use Mahone\Tests\TestCase;
 
@@ -22,6 +23,7 @@ class DataUser
     use TraitPlatformOrderId;
     use TraitProductCode;
     use TraitProductName;
+    use TraitWeight;
 }
 
 
@@ -42,6 +44,7 @@ class TraitDataTest extends TestCase
         $this->assertObjectHasAttribute('platformOrderId', $dataUser);
         $this->assertObjectHasAttribute('productCode', $dataUser);
         $this->assertObjectHasAttribute('name', $dataUser);
+        $this->assertObjectHasAttribute('weight', $dataUser);
     }
 
     public function testFunctions()
@@ -57,6 +60,7 @@ class TraitDataTest extends TestCase
         $dataUser->setFlavor('abc');
         $dataUser->setPlatformOrderId('100002');
         $dataUser->setProductCode('SKU0001');
+        $dataUser->setWeight(10.001);
         $this->assertEquals('SKU0001', $dataUser->getProductCode());
     }
 }
