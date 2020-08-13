@@ -6,7 +6,7 @@ trait TraitFlavor
 {
     /**
      * @var string $flavor
-     * @ORM\Column(name="flavor", type="string", length=9)
+     * @ORM\Column(name="flavor", type="string", length=50)
      */
     private $flavor = '';
 
