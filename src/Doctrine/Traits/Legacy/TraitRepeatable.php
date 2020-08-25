@@ -66,17 +66,35 @@ Trait TraitRepeatable
         $tryTimes = $this->getTryTimes() + 1;
         $this->setTryTimes($tryTimes);
 
-        if (!$isProcessed) {
-            if ($tryTimes < 720) {//前12h按1 min重试
+        /**
+            遵循逻辑
+            前多少时间/重试延后时间 总的重试次数累加
+            15m/1m  15次
+            1h/3m   30次
+            2h/5m   42次
+            6h/10m  66次
+            1d/1h   84次
+            3d/3h   100次
+            7d/8h   112次
+            7d+/12h  112次+
+         */
+        if ( ! $isProcessed) {
+            if ($tryTimes < 15) {
                 $delayTime = '+1 min';
-            } elseif ($tryTimes < 792) {//前24h按10 min重试,tryTimes继续+12*60/10
+            } elseif ($tryTimes < 30) {
+                $delayTime = '+3 min';
+            } elseif ($tryTimes < 42) {
+                $delayTime = '+5 min';
+            } elseif($tryTimes < 66) {
                 $delayTime = '+10 min';
-            } elseif ($tryTimes < 840) {//前3天按1 hour重试，tryTimes继续+2*24/1
+            } elseif ($tryTimes < 84) {
                 $delayTime = '+1 hour';
-            } elseif ($tryTimes < 864) {//前7天按4 hour重试，tryTimes继续+4*24/4
-                $delayTime = '+4 hour';
-            } else {//超过7天按8 hour重试
+            } elseif ($tryTimes < 100) {
+                $delayTime = '+3 hour';
+            } elseif ($tryTimes < 112) {
                 $delayTime = '+8 hour';
+            } else {
+                $delayTime = '+12 hour';
             }
             $this->setNextTriggerAt(new \DateTime($delayTime));
         }
