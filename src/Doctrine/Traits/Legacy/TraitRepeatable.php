@@ -69,29 +69,26 @@ Trait TraitRepeatable
         /**
             遵循逻辑
             前多少时间/重试延后时间 总的重试次数累加
-            15m/1m  15次
-            1h/3m   30次
-            2h/5m   42次
-            6h/10m  66次
-            1d/1h   84次
-            3d/3h   100次
-            7d/8h   112次
-            7d+/12h  112次+
+            5m/1m     5次
+            3h/5m    40次
+            7h/10m   64次
+            1d/1h    81次
+            3d/3h    97次
+            7d/8h   109次
+            7d+/12h 109次+
          */
         if ( ! $isProcessed) {
-            if ($tryTimes < 15) {
+            if ($tryTimes < 5) {
                 $delayTime = '+1 min';
-            } elseif ($tryTimes < 30) {
-                $delayTime = '+3 min';
-            } elseif ($tryTimes < 42) {
+            } elseif ($tryTimes < 40) {
                 $delayTime = '+5 min';
-            } elseif($tryTimes < 66) {
+            } elseif($tryTimes < 64) {
                 $delayTime = '+10 min';
-            } elseif ($tryTimes < 84) {
+            } elseif ($tryTimes < 81) {
                 $delayTime = '+1 hour';
-            } elseif ($tryTimes < 100) {
+            } elseif ($tryTimes < 97) {
                 $delayTime = '+3 hour';
-            } elseif ($tryTimes < 112) {
+            } elseif ($tryTimes < 109) {
                 $delayTime = '+8 hour';
             } else {
                 $delayTime = '+12 hour';
