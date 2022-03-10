@@ -8,7 +8,7 @@ Trait TraitBatchNumber
 {
     /**
      * 批次号
-     * @ORM\Column(name="batchNumber", type="string", length=20)
+     * @ORM\Column(name="batchNumber", type="string", length=50)
      */
     private $batchNumber = '';
 
